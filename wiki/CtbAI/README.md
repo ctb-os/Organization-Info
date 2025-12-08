@@ -1,5 +1,5 @@
 # CtbAI
-**Last updated - `v1.0.6`**
+**Last updated - [`v1.0.6`](https://github.com/ctb-os/CtbAI/releases/tag/v1.0.6)**
 
 > AI 관련 서비스
 
@@ -9,6 +9,7 @@
  - [Feature](#feature)
    - [Base Service](#base-service)
    - [Translation](#translation)
+     - [Edge Case](#edge-case)
      - [API](#api)
  - [How to binding](#how-to-binding)
 
@@ -45,7 +46,25 @@
 > TAG = `CTB_AI_TranslationService`  
 > TIME_OUT = 10,000ms  
 > Action = `com.ctb.ai.translation`  
-> Class = `com.ctb.ai.translation.Main`  
+> Class = `com.ctb.ai.translation.Main`
+
+</br>
+
+#### Edge Case
+- **언어 세팅(`100` `201` `211`)**  
+  1. 입출력 언어가 같은 경우
+  2. 지원하지 않는 언어일 경우
+  
+  언어 변경이 이뤄지지 않습니다.
+
+- **번역(`200` `201` `210` `211`)**
+  1. 언어 설정이 이뤄지지 않은 경우
+  2. 입력 문자의 언어 감지 결과가 출력언어와 같을 경우
+  3. (201, 211)에서 언어 변경이 이뤄지지않은 경우
+
+  입력 값과 같은 값을 반환합니다.
+
+</br>
 
 #### API
 <table>
